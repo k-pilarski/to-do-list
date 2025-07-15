@@ -1,30 +1,36 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moja Lista To-Do</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>My To Do List</title>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-    <h1>Moja Lista Zadań</h1>
+    <header>
+        <h1>My To Do List 📝</h1>
+    </header>
+    <main>
+        <form class="task-form" id="js--task-form-id">
+            <input type="text" id="js--task-description-id" placeholder="Task description" required>
+            <input type="date" id="js--task-due-date-id">
+            <select id="js--task-priority-id">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button type="submit">Add task</button>
+        </form>
 
-    <form id="task-form">
-        <input type="text" id="task-description" placeholder="Opis zadania" required>
-        <input type="date" id="task-due-date">
-        <select id="task-priority">
-            <option value="niski">Niski</option>
-            <option value="sredni">Średni</option>
-            <option value="wysoki">Wysoki</option>
-        </select>
-        <button type="submit">Dodaj Zadanie</button>
-    </form>
+        <div class="filters-sorts" id="js--filters-sorts-id"></div>
 
-    <div id="filters-sorts">
-        </div>
-
-    <ul id="task-list">
-        </ul>
+        <ul class="task-list" id="js--task-list-id"></ul>
+    </main>
 
     <script src="script.js"></script>
 </body>
