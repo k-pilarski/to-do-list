@@ -6,6 +6,7 @@ class Task {
         this.description = description;
         this.date = date;
         this.priority = priority;
+        this.isCompleted = false;
     }
 };
 
@@ -22,6 +23,10 @@ function renderTasks() {
         const listItem = document.createElement('li'); 
         listItem.dataset.id = task.id;     
         
+        if (task.isCompleted) {
+            listItem.classList.add('completed');
+        }
+
         const taskDateObj = new Date(task.date);
         
         const datePart = taskDateObj.toLocaleDateString('pl-PL', {
@@ -38,6 +43,7 @@ function renderTasks() {
         let formattedDate = ` ${datePart} ${timePart}`;
 
         listItem.innerHTML = `
+            <input type="checkbox" class="complete-checkbox" ${task.isCompleted ? 'checked' : ''}>
             <span>${task.description} - Priorytet: ${task.priority} Data: ${formattedDate}</span>
             <button class="delete-task-btn">Delete task</button>
         `;
@@ -73,9 +79,26 @@ tasksList.addEventListener('click', (event) => {
         const listItem = event.target.closest('li');
 
         const taskIdToDelete = listItem.dataset.id;
-
-        tasks = tasks.filter(task => task.id !== taskIdToDelete);
+        
+        tasks = tasks.filter(task => task.id !== taskIdToDelete)
 
         renderTasks();
+    }
+
+    if(event.target.closest('.complete-checkbox')) {
+        const checkbox = event.target;
+        
+        const listItem = checkbox.closest('li');
+
+        const taskIdToToggle = listItem.dataset.id;
+
+        const taskToUpdate = tasks.find(task => task.id === taskIdToToggle);
+
+        if (taskToUpdate) {
+            taskToUpdate.isCompleted = !taskToUpdate.isCompleted;
+
+            renderTasks();
+        }
+            
     }
 });
