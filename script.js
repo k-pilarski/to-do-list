@@ -1,5 +1,10 @@
 let tasks = []
 
+const storedTasks = localStorage.getItem('tasks');
+if (storedTasks) {
+    tasks = JSON.parse(storedTasks);
+}
+
 class Task {
     constructor(description, date, priority) {
         this.id = Date.now().toString();
@@ -51,6 +56,8 @@ function renderTasks() {
     });
 };
 
+renderTasks();
+
 taskForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -70,6 +77,8 @@ taskForm.addEventListener('submit', function(event) {
         taskForm.reset();
 
         renderTasks()
+        
+        localStorage.setItem('tasks', JSON.stringify(tasks));
 
     }
 });
@@ -83,6 +92,8 @@ tasksList.addEventListener('click', (event) => {
         tasks = tasks.filter(task => task.id !== taskIdToDelete)
 
         renderTasks();
+
+        localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
     if(event.target.closest('.complete-checkbox')) {
@@ -98,6 +109,8 @@ tasksList.addEventListener('click', (event) => {
             taskToUpdate.isCompleted = !taskToUpdate.isCompleted;
 
             renderTasks();
+
+            localStorage.setItem('tasks', JSON.stringify(tasks));
         }
             
     }
