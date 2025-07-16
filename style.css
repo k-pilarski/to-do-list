@@ -18,6 +18,10 @@ header {
     padding: 1em;
 }
 
+main {
+    padding: 1em;
+}
+
 .task-form {
     margin-bottom: 2em;
     padding: 1.5em;
@@ -31,7 +35,8 @@ header {
 
 .task-form input,
 .task-form select,
-.task-form button {
+.task-form button,
+.delete-task-btn {
     padding: 1em;
     border: 0.1em solid #ddd;
     border-radius: 0.4em;
@@ -58,4 +63,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.delete-task-btn {
+    background-color: #ff1c27;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
