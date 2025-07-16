@@ -8,14 +8,21 @@ body {
     width: 100vw;
     height: 100vh;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #000000;
+    background-color: #F7FBFC;
+    color: black;
     display: flex;
     flex-direction: column;
 }
 
 header {
     padding: 1em;
+    background-color: #769FCD;
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    color: white;
 }
 
 main {
@@ -25,25 +32,27 @@ main {
 .task-form {
     margin-bottom: 2em;
     padding: 1.5em;
-    background-color: #ffffff;
+    background-color: #B9D7EA;
     border-radius: 0.8em;
     box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.1);
     display: flex;
     gap: 1em;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .task-form input,
 .task-form select,
 .task-form button,
-.delete-task-btn {
+.delete-task-btn,
+.edit-task-btn {
     padding: 1em;
     border: 0.1em solid #ddd;
     border-radius: 0.4em;
 }
 
 .task-form button {
-    background-color: #007bff;
+    background-color: #769FCD;
     color: white;
     border: none;
     cursor: pointer;
@@ -55,66 +64,76 @@ main {
 }
 
 .task-list li {
-    background-color: #fff;
+    background-color: #D6E6F2;
     padding: 1.5em;
     margin-bottom: 1em;
     border-radius: 0.8em;
     box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 1em;
+    justify-content: center;
 }
 
 .delete-task-btn {
-    background-color: #ff1c27;
+    background-color: #769FCD;
     color: white;
     border: none;
     cursor: pointer;
 }
 
-/* Styling dla checkboxa (opcjonalne, ale zalecane dla spójności) */
+.edit-task-btn {
+    background-color: #769FCD;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
 .complete-checkbox {
-    /* Usunięcie domyślnego wyglądu przeglądarki dla większej kontroli */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none; 
     
-    width: 1.5em; /* Rozmiar checkboxa */
+    width: 1.5em; 
     height: 1.5em;
-    border: 0.15em solid #007bff; /* Kolor ramki */
-    border-radius: 0.25em; /* Lekko zaokrąglone rogi */
+    border: 0.15em solid #769FCD; 
+    border-radius: 0.25em; 
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0; /* Zapobiega zmniejszaniu się checkboxa */
-    margin-right: 1em; /* Odstęp od tekstu zadania */
+    flex-shrink: 0; 
+    margin-right: 1em; 
 }
 
-/* Wypełnienie checkboxa po zaznaczeniu */
 .complete-checkbox:checked {
-    background-color: #007bff; /* Kolor wypełnienia po zaznaczeniu */
-    border-color: #007bff;
+    background-color: #769FCD;
+    border-color: #769FCD;
 }
 
-/* Ikona "ptaszka" w checkboxie po zaznaczeniu (użycie pseudo-elementu) */
 .complete-checkbox:checked::after {
-    content: '\2713'; /* Unicode dla symbolu ✓ */
+    content: '\2713';
     color: white;
     font-size: 1em;
     font-weight: bold;
 }
 
-/* --------------------------------------------------- */
-
-/* Styling dla ukończonego zadania */
 .task-list li.completed {
-    background-color: #e9ecef; /* Lekko zmieniony kolor tła */
-    opacity: 0.7; /* Lekkie przyciemnienie */
+    background-color: #e9ecef;
+    opacity: 0.7;
 }
 
-/* Przekreślenie tekstu zadania */
 .task-list li.completed span {
     text-decoration: line-through;
-    color: #6c757d; /* Zmieniony kolor tekstu dla ukończonych zadań */
+    color: #6c757d; 
+}
+
+button {
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 710px) {
+  .task-form {
+    flex-direction: column;
+  }
 }

@@ -50,6 +50,7 @@ function renderTasks() {
         listItem.innerHTML = `
             <input type="checkbox" class="complete-checkbox" ${task.isCompleted ? 'checked' : ''}>
             <span>${task.description} - Priorytet: ${task.priority} Data: ${formattedDate}</span>
+            <button class="edit-task-btn">Edit task</button>
             <button class="delete-task-btn">Delete task</button>
         `;
         tasksList.appendChild(listItem);
@@ -94,6 +95,15 @@ tasksList.addEventListener('click', (event) => {
         renderTasks();
 
         localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    if (event.target.closest('.edit-task-btn')) {
+        const listItem = event.target.closest('li');
+
+        const taskIdToEdit = listItem.dataset.id;
+
+        
+
     }
 
     if(event.target.closest('.complete-checkbox')) {
