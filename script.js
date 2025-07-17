@@ -35,6 +35,19 @@ function renderTasks() {
             listItem.classList.add('completed');
         }
 
+        switch (task.priority) {
+            case 'Low':
+                listItem.classList.add('priority-low');
+                break;
+            case 'Medium':
+                listItem.classList.add('priority-medium');
+                break;
+            case 'High':
+                listItem.classList.add('priority-high');
+                break;
+        }
+
+
         if (task.isEditing) {
             listItem.innerHTML = `
                 <div class="left-li">

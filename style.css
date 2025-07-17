@@ -11,6 +11,9 @@
     --bg-completed-task-color: #e9ecef;
     --font-completed-color: #6c757d;
     --btn-hover-color: #658EBC;
+    --priority-low-border-color: #4CAF50;
+    --priority-medium-border-color: #FFC107;
+    --priority-high-border-color: #F44336;
 }
 
 *, *::before, *::after {
@@ -26,7 +29,7 @@ body {
     color: var(--font-color);
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 600;
     font-style: normal;
     display: flex;
     flex-direction: column;
@@ -173,6 +176,18 @@ button:hover {
 
 .task-list li.drag-over {
     border-top: 2px solid var(--bg-color-header-and-footer);
+}
+
+.task-list li.priority-low {
+    border-left: 0.5em solid var(--priority-low-border-color); /* Grubsze obramowanie po lewej stronie */
+}
+
+.task-list li.priority-medium {
+    border-left: 0.5em solid var(--priority-medium-border-color);
+}
+
+.task-list li.priority-high {
+    border-left: 0.5em solid var(--priority-high-border-color);
 }
 
 @media only screen and (max-width: 710px) {
