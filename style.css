@@ -49,6 +49,18 @@ main {
     padding: 1em;
 }
 
+.empty-list-message {
+    text-align: center;
+    margin-top: 2em;
+    padding: 1.5em;
+    background-color: var(--bg-task-form-color);
+    border-radius: 0.8em;
+    box-shadow: 0 0.2em 0.4em var(--shadow);
+    color: var(--font-color);
+    font-size: 1.2em;
+    display: none;
+}
+
 footer {
     margin-top: auto;
 }
@@ -179,7 +191,7 @@ button:hover {
 }
 
 .task-list li.priority-low {
-    border-left: 0.5em solid var(--priority-low-border-color); /* Grubsze obramowanie po lewej stronie */
+    border-left: 0.5em solid var(--priority-low-border-color);
 }
 
 .task-list li.priority-medium {
@@ -188,6 +200,16 @@ button:hover {
 
 .task-list li.priority-high {
     border-left: 0.5em solid var(--priority-high-border-color);
+}
+
+.task-list li.completed .edit-task-btn {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.task-list li.completed .edit-task-btn:hover {
+    background-color: var(--bg-btn-color);
 }
 
 @media only screen and (max-width: 710px) {
