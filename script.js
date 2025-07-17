@@ -40,13 +40,13 @@ function renderTasks() {
                 <div class="left-li">
                     <input type="text" class="edit-description-input" value="${task.description}">
                     <input type="datetime-local" class="edit-date-input" value="${task.date}">
-                </div>
-                <div class="right-li">
                     <select class="edit-priority-select">
                         <option value="Low" ${task.priority === 'Low' ? 'selected' : ''}>Low</option>
                         <option value="Medium" ${task.priority === 'Medium' ? 'selected' : ''}>Medium</option>
                         <option value="High" ${task.priority === 'High' ? 'selected' : ''}>High</option>
                     </select>
+                </div>
+                <div class="right-li">
                     <button class="save-edit-btn">Save</button>
                     <button class="cancel-edit-btn">Cancel</button>
                 </div>
