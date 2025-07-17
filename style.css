@@ -72,7 +72,16 @@ main {
     display: flex;
     align-items: center;
     gap: 1em;
+    justify-content: space-between;
+}
+
+.left-li,
+.right-li {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
+    gap: 1em;
 }
 
 .delete-task-btn {
@@ -130,6 +139,10 @@ main {
 
 button {
     font-weight: bold;
+}
+
+.span-description {
+    font-size: 18px;
 }
 
 @media only screen and (max-width: 710px) {

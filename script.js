@@ -12,6 +12,7 @@ class Task {
         this.date = date;
         this.priority = priority;
         this.isCompleted = false;
+        this.isEditing = false;
     }
 };
 
@@ -32,27 +33,51 @@ function renderTasks() {
             listItem.classList.add('completed');
         }
 
-        const taskDateObj = new Date(task.date);
+        if (task.isEditing) {
+            listItem.innerHTML = `
+                <div class="left-li">
+                    <input type="text" class="edit-description-input" value="${task.description}">
+                    <input type="datetime-local" class="edit-date-input" value="${task.date}">
+                </div>
+                <div class="right-li">
+                    <select class="edit-priority-select">
+                        <option value="Low" ${task.priority === 'Low' ? 'selected' : ''}>Low</option>
+                        <option value="Medium" ${task.priority === 'Medium' ? 'selected' : ''}>Medium</option>
+                        <option value="High" ${task.priority === 'High' ? 'selected' : ''}>High</option>
+                    </select>
+                    <button class="save-edit-btn">Save</button>
+                    <button class="cancel-edit-btn">Cancel</button>
+                </div>
+            `
+        } else {
+            const taskDateObj = new Date(task.date);
+            
+            const datePart = taskDateObj.toLocaleDateString('pl-PL', {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric'
+            });
+
+            const timePart = taskDateObj.toLocaleTimeString('pl-PL', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            let formattedDate = ` ${datePart} ${timePart}`;
+
+            listItem.innerHTML = `
+                <div class="left-li">
+                    <input type="checkbox" class="complete-checkbox" ${task.isCompleted ? 'checked' : ''}>
+                    <span class="span-description">${task.description} - Priorytet: ${task.priority} Data: ${formattedDate}</span>
+                </div>
+                <div class="right-li">
+                    <button class="edit-task-btn">Edit task</button>
+                    <button class="delete-task-btn">Delete task</button>
+                </div>
+            `;
+
+        }
         
-        const datePart = taskDateObj.toLocaleDateString('pl-PL', {
-            year: 'numeric',
-            month: 'numeric',
-            day: 'numeric'
-        });
-
-        const timePart = taskDateObj.toLocaleTimeString('pl-PL', {
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-
-        let formattedDate = ` ${datePart} ${timePart}`;
-
-        listItem.innerHTML = `
-            <input type="checkbox" class="complete-checkbox" ${task.isCompleted ? 'checked' : ''}>
-            <span>${task.description} - Priorytet: ${task.priority} Data: ${formattedDate}</span>
-            <button class="edit-task-btn">Edit task</button>
-            <button class="delete-task-btn">Delete task</button>
-        `;
         tasksList.appendChild(listItem);
     });
 };
@@ -102,8 +127,53 @@ tasksList.addEventListener('click', (event) => {
 
         const taskIdToEdit = listItem.dataset.id;
 
-        
+        const taskToEdit = tasks.find(task => task.id === taskIdToEdit);
 
+        if (taskToEdit.isCompleted === false) {
+            if (taskToEdit) {
+                taskToEdit.isEditing = !taskToEdit.isEditing;
+
+                renderTasks();
+            }
+        }
+    }
+
+    if(event.target.closest('.save-edit-btn')) {
+        const listItem = event.target.closest('li');
+
+        const taskIdToSave = listItem.dataset.id;
+
+        const taskToSave = tasks.find(task => task.id === taskIdToSave);
+
+        if (taskToSave) {
+            const editDescription = listItem.querySelector('.edit-description-input');
+            const editDueDate = listItem.querySelector('.edit-date-input');
+            const editPriority = listItem.querySelector('.edit-priority-select');
+
+            taskToSave.description = editDescription.value;
+            taskToSave.date = editDueDate.value;
+            taskToSave.priority = editPriority.value;
+
+            taskToSave.isEditing = false;
+
+            renderTasks();
+
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+    }
+
+    if(event.target.closest('.cancel-edit-btn')) {
+        const listItem = event.target.closest('li');
+
+        const taskIdToCancel = listItem.dataset.id;
+
+        const taskToCancel = tasks.find(task => task.id === taskIdToCancel);
+
+        if (taskToCancel) {
+            taskToCancel.isEditing = false;
+
+            renderTasks();
+        }
     }
 
     if(event.target.closest('.complete-checkbox')) {
@@ -121,7 +191,6 @@ tasksList.addEventListener('click', (event) => {
             renderTasks();
 
             localStorage.setItem('tasks', JSON.stringify(tasks));
-        }
-            
+        }    
     }
 });
