@@ -5,7 +5,7 @@
 }
 
 body {
-    width: 100vw;
+    max-width: 100vw;
     height: 100vh;
     font-family: Arial, sans-serif;
     background-color: #F7FBFC;
@@ -14,19 +14,22 @@ body {
     flex-direction: column;
 }
 
-header {
+header,
+footer {
     padding: 1em;
     background-color: #769FCD;
     display: flex;
     justify-content: center;
-}
-
-h1{
     color: white;
 }
 
+
 main {
     padding: 1em;
+}
+
+footer {
+    margin-top: auto;
 }
 
 .task-form {
@@ -100,10 +103,7 @@ main {
 }
 
 .complete-checkbox {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none; 
-    
     width: 1.5em; 
     height: 1.5em;
     border: 0.15em solid #769FCD; 
@@ -142,8 +142,20 @@ button {
     font-weight: bold;
 }
 
+button:hover {
+    background-color: #658EBC;
+}
+
 .span-description {
     font-size: 18px;
+}
+
+.task-list li.dragging {
+    opacity: 0.5;
+}
+
+.task-list li.drag-over {
+    border-top: 2px solid #769FCD;
 }
 
 @media only screen and (max-width: 710px) {
