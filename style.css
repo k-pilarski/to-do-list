@@ -45,7 +45,12 @@ main {
 .task-form select,
 .task-form button,
 .delete-task-btn,
-.edit-task-btn {
+.edit-task-btn,
+.edit-description-input,
+.edit-date-input,
+.edit-priority-select,
+.save-edit-btn,
+.cancel-edit-btn {
     padding: 1em;
     border: 0.1em solid #ddd;
     border-radius: 0.4em;
@@ -84,14 +89,10 @@ main {
     gap: 1em;
 }
 
-.delete-task-btn {
-    background-color: #769FCD;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.edit-task-btn {
+.delete-task-btn,
+.edit-task-btn,
+.save-edit-btn,
+.cancel-edit-btn {
     background-color: #769FCD;
     color: white;
     border: none;
