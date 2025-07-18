@@ -65,19 +65,15 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    background-color: var(--bg-btn-color);
+    color: var(--headers-font-color);
+    border: none;
+    border-radius: 0.4em;
 }
 
 button:hover {
     background-color: var(--btn-hover-color);
     transform: scale(1.05);
-}
-
-.task-form button {
-    background-color: var(--bg-btn-color);
-    color: var(--headers-font-color);
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .task-form button,
@@ -86,19 +82,25 @@ button:hover {
 .save-edit-btn,
 .cancel-edit-btn {
     padding: 1em;
-    border: 0.1em solid var(--border-btn-color);
-    border-radius: 0.4em;
 }
 
-.delete-task-btn,
-.edit-task-btn,
-.save-edit-btn,
-.cancel-edit-btn {
-    background-color: var(--bg-btn-color);
-    color: var(--headers-font-color);
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+.sort-button {
+    padding: 0.8em 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.sort-button:hover {
+    transform: scale(1.02);
+}
+
+.sort-button .arrow-down {
+    transition: transform 0.3s ease-in-out;
+}
+
+.sort-button.active .arrow-down {
+    transform: rotate(180deg);
 }
 
 .task-list li.completed .edit-task-btn {
@@ -109,33 +111,7 @@ button:hover {
 
 .task-list li.completed .edit-task-btn:hover {
     background-color: var(--bg-btn-color);
-}
-
-.sort-button {
-    background-color: var(--bg-btn-color);
-    color: var(--headers-font-color);
-    border: none;
-    padding: 0.8em 1.5em;
-    border-radius: 0.4em;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-}
-
-.sort-button:hover {
-    background-color: var(--btn-hover-color);
-    transform: scale(1.02);
-}
-
-.sort-button .arrow-down {
-    transition: transform 0.3s ease-in-out;
-}
-
-.sort-button.active .arrow-down {
-    transform: rotate(180deg);
+    transform: scale(1);
 }
 
 /* Form Styles */
