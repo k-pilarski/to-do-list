@@ -1,16 +1,17 @@
 import { Task } from './models/Task.js';
 import { loadTasks, saveTasks } from './utils/storage.js';
+import {
+    taskForm,
+    taskDescription,
+    taskDueDate,
+    taskPriority,
+    tasksList,
+    emptyListMessage
+} from './dom/elements.js';
 
 let tasks = loadTasks();
 let draggedItem = null;
 
-
-const taskForm = document.getElementById("js--task-form-id");
-const taskDescription = document.getElementById("js--task-description-id");
-const taskDueDate = document.getElementById("js--task-due-date-id");
-const taskPriority = document.getElementById("js--task-priority-id");
-const tasksList = document.getElementById("js--task-list-id");
-const emptyListMessage = document.getElementById("js--empty-list-message");
 
 function renderTasks() {
     tasksList.innerHTML = "";
