@@ -1,3 +1,5 @@
+/* Color Variables */
+
 :root {
     --bg-color: #F7FBFC;
     --bg-color-header-and-footer: #769FCD;
@@ -16,11 +18,15 @@
     --priority-high-border-color: #F44336;
 }
 
+/* CSS Reset */
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+/* Base Styles */
 
 body {
     max-width: 100vw;
@@ -53,6 +59,8 @@ footer {
     margin-top: auto;
 }
 
+/* Button Styles */
+
 button {
     font-weight: bold;
     cursor: pointer;
@@ -64,17 +72,73 @@ button:hover {
     transform: scale(1.05);
 }
 
-.empty-list-message {
-    text-align: center;
-    margin-top: 2em;
-    padding: 1.5em;
-    background-color: var(--bg-task-form-color);
-    border-radius: 0.8em;
-    box-shadow: 0 0.2em 0.4em var(--shadow);
-    color: var(--font-color);
-    font-size: 1.2em;
-    display: none;
+.task-form button,
+.delete-task-btn,
+.edit-task-btn,
+.save-edit-btn,
+.cancel-edit-btn {
+    padding: 1em;
+    border: 0.1em solid var(--border-btn-color);
+    border-radius: 0.4em;
 }
+
+.task-form button {
+    background-color: var(--bg-btn-color);
+    color: var(--headers-font-color);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.sort-button {
+    background-color: var(--bg-btn-color);
+    color: var(--headers-font-color);
+    border: none;
+    padding: 0.8em 1.5em;
+    border-radius: 0.4em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.sort-button:hover {
+    background-color: var(--btn-hover-color);
+    transform: scale(1.02);
+}
+
+.sort-button .arrow-down {
+    transition: transform 0.3s ease-in-out;
+}
+
+.sort-button.active .arrow-down {
+    transform: rotate(180deg);
+}
+
+.delete-task-btn,
+.edit-task-btn,
+.save-edit-btn,
+.cancel-edit-btn {
+    background-color: var(--bg-btn-color);
+    color: var(--headers-font-color);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.task-list li.completed .edit-task-btn {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.task-list li.completed .edit-task-btn:hover {
+    background-color: var(--bg-btn-color);
+}
+
+/* Form Styles */
 
 .task-form {
     margin-bottom: 2em;
@@ -89,37 +153,63 @@ button:hover {
 }
 
 .task-form input,
-.task-form select,
-.task-form button,
-.delete-task-btn,
-.edit-task-btn,
-.edit-description-input,
-.edit-date-input,
-.edit-priority-select,
-.save-edit-btn,
-.cancel-edit-btn {
+.task-form select {
     padding: 1em;
     border: 0.1em solid var(--border-btn-color);
     border-radius: 0.4em;
 }
 
 .task-form input:focus,
-.task-form select:focus,
-.edit-description-input:focus,
-.edit-date-input:focus,
-.edit-priority-select:focus {
+.task-form select:focus {
     outline: none; 
     border-color: var(--bg-btn-color);
     box-shadow: 0 0 0 0.15em rgba(118, 159, 205, 0.25);
 }
 
-.task-form button {
+/* Sort Styles */
+
+.sort-controls {
+    position: relative;
+    display: flex;
+    justify-content: flex-end; 
+    margin-bottom: 1.5em;
+}
+
+.sort-options-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--bg-task-form-color);
+    border-radius: 0.4em;
+    box-shadow: 0 0.2em 0.4em var(--shadow);
+    overflow: hidden;
+    z-index: 100;
+    display: none; 
+    flex-direction: column;
+    min-width: 180px;
+}
+
+.sort-options-dropdown.show {
+    display: flex; 
+}
+
+.sort-option {
+    background: none;
+    border: none;
+    color: var(--font-color);
+    padding: 0.8em 1.5em;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.sort-option:hover {
     background-color: var(--bg-btn-color);
     color: var(--headers-font-color);
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
+
+/* List Styles */
 
 .task-list {
     list-style: none;
@@ -146,15 +236,20 @@ button:hover {
     gap: 1em;
 }
 
-.delete-task-btn,
-.edit-task-btn,
-.save-edit-btn,
-.cancel-edit-btn {
-    background-color: var(--bg-btn-color);
-    color: var(--headers-font-color);
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+.edit-description-input,
+.edit-date-input,
+.edit-priority-select {
+    padding: 1em;
+    border: 0.1em solid var(--border-btn-color);
+    border-radius: 0.4em;
+}
+
+.edit-description-input:focus,
+.edit-date-input:focus,
+.edit-priority-select:focus {
+    outline: none; 
+    border-color: var(--bg-btn-color);
+    box-shadow: 0 0 0 0.15em rgba(118, 159, 205, 0.25);
 }
 
 .complete-checkbox {
@@ -217,80 +312,18 @@ button:hover {
     border-left: 0.5em solid var(--priority-high-border-color);
 }
 
-.task-list li.completed .edit-task-btn {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-}
+/* Empty List Styles */
 
-.task-list li.completed .edit-task-btn:hover {
-    background-color: var(--bg-btn-color);
-}
-
-.sort-controls {
-    position: relative;
-    display: flex;
-    justify-content: flex-end; 
-    margin-bottom: 1.5em;
-}
-
-.sort-button {
-    background-color: var(--bg-btn-color);
-    color: var(--headers-font-color);
-    border: none;
-    padding: 0.8em 1.5em;
-    border-radius: 0.4em;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-}
-
-.sort-button:hover {
-    background-color: var(--btn-hover-color);
-    transform: scale(1.02);
-}
-
-.sort-button .arrow-down {
-    transition: transform 0.3s ease-in-out;
-}
-
-.sort-button.active .arrow-down {
-    transform: rotate(180deg);
-}
-
-.sort-options-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
+.empty-list-message {
+    text-align: center;
+    margin-top: 2em;
+    padding: 1.5em;
     background-color: var(--bg-task-form-color);
-    border-radius: 0.4em;
+    border-radius: 0.8em;
     box-shadow: 0 0.2em 0.4em var(--shadow);
-    overflow: hidden;
-    z-index: 100;
-    display: none; 
-    flex-direction: column;
-    min-width: 180px;
-}
-
-.sort-options-dropdown.show {
-    display: flex; 
-}
-
-.sort-option {
-    background: none;
-    border: none;
     color: var(--font-color);
-    padding: 0.8em 1.5em;
-    text-align: left;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.2s ease-in-out;
+    font-size: 1.2em;
+    display: none;
 }
 
-.sort-option:hover {
-    background-color: var(--bg-btn-color);
-    color: var(--headers-font-color);
-}
+

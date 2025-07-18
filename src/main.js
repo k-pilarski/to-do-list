@@ -1,5 +1,4 @@
 import { loadTasks, saveTasks } from './utils/storage.js';
-import { taskDescription } from './dom/elements.js';
 import { renderTasks } from './ui/render.js';
 import { setupFormSubmit, setupTaskListClicks, setupSortControls } from './features/taskHandlers.js';
 import { setupDragAndDrop } from './features/dragAndDrop.js'; 
