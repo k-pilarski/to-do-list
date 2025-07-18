@@ -47,7 +47,6 @@ export const setupTaskListClicks = (tasks, renderTasks, saveTasks) => {
             if (!taskToModify.isCompleted) { 
                 taskToModify.isEditing = !taskToModify.isEditing;
                 renderTasks(tasks);
-                saveTasks(tasks);
             }
         }
 

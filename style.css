@@ -84,14 +84,16 @@ button:hover {
     padding: 1em;
 }
 
-.sort-button {
+.sort-button,
+.filter-button {
     padding: 0.8em 1.5em;
     display: flex;
     align-items: center;
     gap: 0.5em;
 }
 
-.sort-button:hover {
+.sort-button:hover,
+.filter-button:hover {
     transform: scale(1.02);
 }
 
@@ -142,9 +144,16 @@ button:hover {
     box-shadow: 0 0 0 0.15em rgba(118, 159, 205, 0.25);
 }
 
-/* Sort Styles */
+/* Filter and Sort Styles */
 
-.sort-controls {
+.filter-and-sort {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+.sort-controls,
+.filter-controls {
     position: relative;
     display: flex;
     justify-content: center; 
