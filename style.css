@@ -147,14 +147,13 @@ button:hover {
 .sort-controls {
     position: relative;
     display: flex;
-    justify-content: flex-end; 
+    justify-content: center; 
     margin-bottom: 1.5em;
 }
 
 .sort-options-dropdown {
     position: absolute;
     top: 100%;
-    right: 0;
     background-color: var(--bg-task-form-color);
     border-radius: 0.4em;
     box-shadow: 0 0.2em 0.4em var(--shadow);
@@ -163,6 +162,7 @@ button:hover {
     display: none; 
     flex-direction: column;
     min-width: 180px;
+    margin-top: 0.5em;
 }
 
 .sort-options-dropdown.show {
@@ -174,7 +174,7 @@ button:hover {
     border: none;
     color: var(--font-color);
     padding: 0.8em 1.5em;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     width: 100%;
     transition: background-color 0.2s ease-in-out;
