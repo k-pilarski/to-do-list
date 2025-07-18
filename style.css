@@ -226,10 +226,10 @@ button:hover {
 }
 
 .sort-controls {
-    position: relative; /* Ważne dla pozycjonowania dropdownu */
+    position: relative;
     display: flex;
-    justify-content: flex-end; /* Wyrównanie do prawej */
-    margin-bottom: 1.5em; /* Odstęp od listy zadań */
+    justify-content: flex-end; 
+    margin-bottom: 1.5em;
 }
 
 .sort-button {
@@ -255,27 +255,26 @@ button:hover {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Obrót strzałki, gdy menu jest otwarte (dodawane przez JS) */
 .sort-button.active .arrow-down {
     transform: rotate(180deg);
 }
 
 .sort-options-dropdown {
     position: absolute;
-    top: 100%; /* Pozycjonowanie pod przyciskiem */
+    top: 100%;
     right: 0;
     background-color: var(--bg-task-form-color);
     border-radius: 0.4em;
     box-shadow: 0 0.2em 0.4em var(--shadow);
-    overflow: hidden; /* Upewnij się, że zaokrąglone rogi działają */
-    z-index: 100; /* Upewnij się, że jest nad innymi elementami */
-    display: none; /* Domyślnie ukryte */
-    flex-direction: column; /* Opcje jedna pod drugą */
-    min-width: 180px; /* Minimalna szerokość dropdownu */
+    overflow: hidden;
+    z-index: 100;
+    display: none; 
+    flex-direction: column;
+    min-width: 180px;
 }
 
 .sort-options-dropdown.show {
-    display: flex; /* Pokazuj, gdy ma klasę 'show' */
+    display: flex; 
 }
 
 .sort-option {
@@ -290,7 +289,7 @@ button:hover {
 }
 
 .sort-option:hover {
-    background-color: var(--bg-btn-color); /* Podświetlenie przy najechaniu */
+    background-color: var(--bg-btn-color);
     color: var(--headers-font-color);
 }
 
