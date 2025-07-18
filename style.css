@@ -294,4 +294,70 @@ button:hover {
     display: none;
 }
 
+/* Media Queries for Responsiveness */
 
+@media only screen and (max-width: 768px) {
+    .task-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8em;
+    }
+
+    .task-form input,
+    .task-form select,
+    .task-form button {
+        width: 100%;
+    }
+
+    .sort-controls {
+        justify-content: center;
+        margin-bottom: 1em; 
+    }
+
+    .sort-options-dropdown {
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: unset;
+        width: calc(100% - 2em);
+        max-width: 250px;
+    }
+
+    .task-list li {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 0.8em;
+        padding: 1em;
+    }
+
+    .left-li,
+    .right-li {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 0.5em;
+    }
+
+    .span-description {
+        font-size: 16px;
+    }
+
+    .complete-checkbox {
+        margin-right: 0.5em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    main {
+        padding: 0.8em;
+    }
+
+    .task-form,
+    .task-list li,
+    .empty-list-message {
+        padding: 1em;
+    }
+
+    .sort-options-dropdown {
+        width: calc(100% - 1.6em);
+    }
+}
