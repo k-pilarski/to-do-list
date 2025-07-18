@@ -107,6 +107,7 @@ footer {
     color: var(--headers-font-color);
     border: none;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .task-list {
@@ -142,6 +143,7 @@ footer {
     color: var(--headers-font-color);
     border: none;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .complete-checkbox {
@@ -186,6 +188,7 @@ button {
 
 button:hover {
     background-color: var(--btn-hover-color);
+    transform: scale(1.05);
 }
 
 .span-description {
