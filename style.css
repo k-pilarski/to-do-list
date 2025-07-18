@@ -72,6 +72,14 @@ button:hover {
     transform: scale(1.05);
 }
 
+.task-form button {
+    background-color: var(--bg-btn-color);
+    color: var(--headers-font-color);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
 .task-form button,
 .delete-task-btn,
 .edit-task-btn,
@@ -82,12 +90,25 @@ button:hover {
     border-radius: 0.4em;
 }
 
-.task-form button {
+.delete-task-btn,
+.edit-task-btn,
+.save-edit-btn,
+.cancel-edit-btn {
     background-color: var(--bg-btn-color);
     color: var(--headers-font-color);
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.task-list li.completed .edit-task-btn {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.task-list li.completed .edit-task-btn:hover {
+    background-color: var(--bg-btn-color);
 }
 
 .sort-button {
@@ -115,27 +136,6 @@ button:hover {
 
 .sort-button.active .arrow-down {
     transform: rotate(180deg);
-}
-
-.delete-task-btn,
-.edit-task-btn,
-.save-edit-btn,
-.cancel-edit-btn {
-    background-color: var(--bg-btn-color);
-    color: var(--headers-font-color);
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-}
-
-.task-list li.completed .edit-task-btn {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-.task-list li.completed .edit-task-btn:hover {
-    background-color: var(--bg-btn-color);
 }
 
 /* Form Styles */
