@@ -1,14 +1,8 @@
-import { Task } from './models/Task.js';
 import { loadTasks, saveTasks } from './utils/storage.js';
-import {
-    taskForm,
-    taskDescription,
-    taskDueDate,
-    taskPriority,
-    tasksList,
-} from './dom/elements.js';
+import { taskDescription } from './dom/elements.js';
 import { renderTasks } from './ui/render.js';
-import { setupFormSubmit, setupTaskListClicks, setupDragAndDrop } from './features/taskHandlers.js';
+import { setupFormSubmit, setupTaskListClicks} from './features/taskHandlers.js';
+import { setupDragAndDrop } from './features/dragAndDrop.js'; 
 
 let tasks = loadTasks();
 
