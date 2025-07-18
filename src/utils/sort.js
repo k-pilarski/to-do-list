@@ -2,6 +2,15 @@ export const sortTasks = (tasks, sortBy, sortOrder) => {
     const sortedTasks = [...tasks];
 
     switch (sortBy) {
+        case 'name':
+            sortedTasks.sort((a, b) => {
+                if (sortOrder === 'abc') {
+                    return a.description.localeCompare(b.description);
+                } else {
+                    return b.description.localeCompare(a.description);
+                }
+            });
+            break;
         case 'date':
             sortedTasks.sort((a, b) => {
                 const dateA = new Date(a.date);
