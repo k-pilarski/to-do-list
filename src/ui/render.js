@@ -33,9 +33,9 @@ export const renderTasks = (tasks) => {
             if (task.isEditing) {
                 listItem.innerHTML = `
                     <div class="left-li">
-                        <input type="text" class="edit-description-input" value="${task.description}">
-                        <input type="datetime-local" class="edit-date-input" value="${task.date}">
-                        <select class="edit-priority-select">
+                        <input type="text" class="edit-description-input" name="editTaskDescription" value="${task.description}">
+                        <input type="datetime-local" class="edit-date-input" name="editTaskDueDate" value="${task.date}">
+                        <select class="edit-priority-select" name="editTaskPriority">
                             <option value="Low" ${task.priority === 'Low' ? 'selected' : ''}>Low</option>
                             <option value="Medium" ${task.priority === 'Medium' ? 'selected' : ''}>Medium</option>
                             <option value="High" ${task.priority === 'High' ? 'selected' : ''}>High</option>
@@ -64,7 +64,7 @@ export const renderTasks = (tasks) => {
 
                 listItem.innerHTML = `
                     <div class="left-li">
-                        <input type="checkbox" class="complete-checkbox" ${task.isCompleted ? 'checked' : ''}>
+                        <input type="checkbox" class="complete-checkbox" name="checkbox" ${task.isCompleted ? 'checked' : ''}>
                         <span class="span-description">${task.description} - Priorytet: ${task.priority} Data: ${formattedDate}</span>
                     </div>
                     <div class="right-li">
