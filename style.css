@@ -33,20 +33,35 @@ body {
     font-style: normal;
     display: flex;
     flex-direction: column;
-    }
+}
 
 header,
 footer {
     padding: 1em;
     background: var(--bg-color-header-and-footer);
+    color: var(--headers-font-color);
     display: flex;
     justify-content: center;
-    color: var(--headers-font-color);
 }
-
 
 main {
     padding: 1em;
+    flex-grow: 1;
+}
+
+footer {
+    margin-top: auto;
+}
+
+button {
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--btn-hover-color);
+    transform: scale(1.05);
 }
 
 .empty-list-message {
@@ -59,10 +74,6 @@ main {
     color: var(--font-color);
     font-size: 1.2em;
     display: none;
-}
-
-footer {
-    margin-top: auto;
 }
 
 .task-form {
@@ -182,15 +193,6 @@ footer {
     color: var(--font-completed-color); 
 }
 
-button {
-    font-weight: bold;
-}
-
-button:hover {
-    background-color: var(--btn-hover-color);
-    transform: scale(1.05);
-}
-
 .span-description {
     font-size: 18px;
 }
@@ -291,11 +293,4 @@ button:hover {
 .sort-option:hover {
     background-color: var(--bg-btn-color);
     color: var(--headers-font-color);
-}
-
-
-@media only screen and (max-width: 710px) {
-  .task-form {
-    flex-direction: column;
-  }
 }

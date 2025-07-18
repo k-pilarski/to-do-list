@@ -12,10 +12,6 @@ const initApp = () => {
     setupTaskListClicks(tasks, renderTasks, saveTasks);
     setupDragAndDrop(tasks, renderTasks, saveTasks);
     setupSortControls(tasks, renderTasks, saveTasks);
-    
-    if (taskDescription) {
-        taskDescription.focus();
-    }
 };
 
 document.addEventListener('DOMContentLoaded', initApp);
