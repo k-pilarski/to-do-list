@@ -92,6 +92,16 @@ footer {
     border-radius: 0.4em;
 }
 
+.task-form input:focus,
+.task-form select:focus,
+.edit-description-input:focus,
+.edit-date-input:focus,
+.edit-priority-select:focus {
+    outline: none; 
+    border-color: var(--bg-btn-color);
+    box-shadow: 0 0 0 0.15em rgba(118, 159, 205, 0.25);
+}
+
 .task-form button {
     background-color: var(--bg-btn-color);
     color: var(--headers-font-color);
