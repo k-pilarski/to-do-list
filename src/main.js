@@ -1,21 +1,9 @@
-let tasks = []
+import { Task } from './models/Task.js';
+import { loadTasks, saveTasks } from './utils/storage.js';
+
+let tasks = loadTasks();
 let draggedItem = null;
 
-const storedTasks = localStorage.getItem('tasks');
-if (storedTasks) {
-    tasks = JSON.parse(storedTasks);
-}
-
-class Task {
-    constructor(description, date, priority) {
-        this.id = Date.now().toString();
-        this.description = description;
-        this.date = date;
-        this.priority = priority;
-        this.isCompleted = false;
-        this.isEditing = false;
-    }
-};
 
 const taskForm = document.getElementById("js--task-form-id");
 const taskDescription = document.getElementById("js--task-description-id");
@@ -126,8 +114,7 @@ taskForm.addEventListener('submit', function(event) {
 
         renderTasks()
         
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-
+        saveTasks(tasks);
     }
 });
 
@@ -140,8 +127,8 @@ tasksList.addEventListener('click', (event) => {
         tasks = tasks.filter(task => task.id !== taskIdToDelete)
 
         renderTasks();
-
-        localStorage.setItem('tasks', JSON.stringify(tasks));
+        
+        saveTasks(tasks);
     }
 
     if (event.target.closest('.edit-task-btn')) {
@@ -156,6 +143,8 @@ tasksList.addEventListener('click', (event) => {
                 taskToEdit.isEditing = !taskToEdit.isEditing;
 
                 renderTasks();
+
+                saveTasks(tasks);
             }
         }
     }
@@ -180,7 +169,7 @@ tasksList.addEventListener('click', (event) => {
 
             renderTasks();
 
-            localStorage.setItem('tasks', JSON.stringify(tasks));
+            saveTasks(tasks);
         }
     }
 
@@ -195,6 +184,8 @@ tasksList.addEventListener('click', (event) => {
             taskToCancel.isEditing = false;
 
             renderTasks();
+
+            saveTasks(tasks);
         }
     }
 
@@ -212,7 +203,7 @@ tasksList.addEventListener('click', (event) => {
 
             renderTasks();
 
-            localStorage.setItem('tasks', JSON.stringify(tasks));
+            saveTasks(tasks);
         }    
     }
 });
@@ -266,7 +257,6 @@ function getDragAfterElement(container, y) {
 
     return draggableElements.reduce((closest, child) => {
         const box = child.getBoundingClientRect();
-        // Środek elementu
         const offset = y - box.top - box.height / 2;
 
         if (offset < 0 && offset > closest.offset) {
@@ -311,5 +301,5 @@ tasksList.addEventListener('drop', (event) => {
 
     tasks.splice(newIndex, 0, taskToMove); 
 
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    saveTasks(tasks);
 });
