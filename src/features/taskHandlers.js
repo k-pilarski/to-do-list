@@ -35,7 +35,10 @@ export const setupTaskListClicks = (tasks, renderTasks, saveTasks) => {
         if (!taskToModify) return;
 
         if (event.target.closest('.delete-task-btn')) {
-            tasks = tasks.filter(task => task.id !== taskId);
+            const taskIndexToDelete = tasks.findIndex(task => task.id === taskId);
+            if (taskIndexToDelete > -1) {
+                tasks.splice(taskIndexToDelete, 1);
+            }
             renderTasks(tasks);
             saveTasks(tasks);
         }
