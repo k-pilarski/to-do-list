@@ -367,6 +367,6 @@ button:hover {
     }
 
     .sort-options-dropdown {
-        width: calc(100% - 1.6em);
+        width: calc(100% - 1.5em);
     }
 }
