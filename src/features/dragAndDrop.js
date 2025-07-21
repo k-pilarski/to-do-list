@@ -19,8 +19,11 @@ function getDragAfterElement(container, y) {
 
 export const setupDragAndDrop = (tasks, renderTasks, saveTasks) => {
     tasksList.addEventListener('dragstart', (event) => {
-        const listItem = event.target.closest('li');
-        if (!listItem) return;
+        const listItem = event.target.closest('li[data-id]');
+        if (!listItem) {
+            event.preventDefault();
+            return;
+        }
 
         draggedItem = listItem;
         event.dataTransfer.effectAllowed = 'move';
@@ -64,7 +67,7 @@ export const setupDragAndDrop = (tasks, renderTasks, saveTasks) => {
         event.preventDefault();
 
         const droppedTaskId = event.dataTransfer.getData('text/plain');
-        const droppedTaskElement = document.querySelector(`li[data-id="${droppedTaskId}"]`);
+        const droppedTaskElement = tasksList.querySelector(`li[data-id="${droppedTaskId}"]`);
 
         if (!droppedTaskElement) return;
 
@@ -93,7 +96,5 @@ export const setupDragAndDrop = (tasks, renderTasks, saveTasks) => {
         }
 
         tasks.splice(newIndex, 0, taskToMove);
-        renderTasks(tasks);
-        saveTasks(tasks);
     });
 };
