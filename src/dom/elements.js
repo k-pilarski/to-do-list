@@ -6,3 +6,5 @@ export const tasksList = document.getElementById("js--task-list-id");
 export const emptyListMessage = document.getElementById("js--empty-list-message");
 export const sortButton = document.getElementById("js--sort-button-id");
 export const sortOptionsDropdown = document.getElementById("js--sort-options-id");
+export const filterButton = document.getElementById("js--filter-button-id");
+export const filterOptionsDropdown = document.getElementById("js--filter-options-id");

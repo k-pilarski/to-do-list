@@ -97,11 +97,13 @@ button:hover {
     transform: scale(1.02);
 }
 
-.sort-button .arrow-down {
+.sort-button .arrow-down,
+.filter-button .arrow-down {
     transition: transform 0.3s ease-in-out;
 }
 
-.sort-button.active .arrow-down {
+.sort-button.active .arrow-down,
+.filter-button.active .arrow-down {
     transform: rotate(180deg);
 }
 
@@ -160,7 +162,8 @@ button:hover {
     margin-bottom: 1.5em;
 }
 
-.sort-options-dropdown {
+.sort-options-dropdown,
+.filter-options-dropdown {
     position: absolute;
     top: 100%;
     background-color: var(--bg-task-form-color);
@@ -174,11 +177,13 @@ button:hover {
     margin-top: 0.5em;
 }
 
-.sort-options-dropdown.show {
+.sort-options-dropdown.show,
+.filter-options-dropdown.show {
     display: flex; 
 }
 
-.sort-option {
+.sort-option,
+.filter-option {
     background: none;
     border: none;
     color: var(--font-color);
@@ -189,7 +194,8 @@ button:hover {
     transition: background-color 0.2s ease-in-out;
 }
 
-.sort-option:hover {
+.sort-option:hover,
+.filter-option:hover {
     background-color: var(--bg-btn-color);
     color: var(--headers-font-color);
 }
@@ -318,12 +324,14 @@ button:hover {
         width: 100%;
     }
 
-    .sort-controls {
+    .sort-controls,
+    .filter-controls {
         justify-content: center;
         margin-bottom: 1em; 
     }
 
-    .sort-options-dropdown {
+    .sort-options-dropdown,
+    .filter-options-dropdown {
         left: 50%;
         transform: translateX(-50%);
         min-width: unset;
@@ -366,7 +374,8 @@ button:hover {
         padding: 1em;
     }
 
-    .sort-options-dropdown {
+    .sort-options-dropdown,
+    .sfilter-options-dropdown {
         width: calc(100% - 1.5em);
     }
 }

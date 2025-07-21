@@ -42,6 +42,14 @@
             </div>
             <div class="filter-controls">
                 <button id="js--filter-button-id" class="filter-button">Filter<span class="arrow-down">&#9660;</span></button>
+                <div id="js--filter-options-id" class="filter-options-dropdown">
+                    <button class="filter-option" data-filter-by="all">All Tasks</button> 
+                    <button class="filter-option" data-filter-by="high-priority">High Priority</button>
+                    <button class="filter-option" data-filter-by="medium-priority">Medium Priority</button>
+                    <button class="filter-option" data-filter-by="low-priority">Low Priority</button>
+                    <button class="filter-option" data-filter-by="completed">Completed</button> 
+                    <button class="filter-option" data-filter-by="active">Active</button>
+                </div>
             </div>
         </section>
         <ul class="task-list" id="js--task-list-id"></ul>
