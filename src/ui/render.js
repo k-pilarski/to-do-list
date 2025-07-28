@@ -39,6 +39,7 @@ export const renderTasks = (tasks, currentFilter = 'all', currentSortBy = 'date'
             }
 
             if (task.isEditing) {
+                listItem.classList.add('editing')
                 listItem.innerHTML = `
                     <div class="left-li">
                         <input type="text" class="edit-description-input" name="editTaskDescription" value="${task.description}">

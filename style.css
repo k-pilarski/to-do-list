@@ -357,8 +357,7 @@ button:hover {
         left: 50%;
         transform: translateX(-50%);
         min-width: unset;
-        width: calc(100% - 2em);
-        max-width: 250px;
+        width: auto;
     }
 
     .task-list li {
@@ -389,6 +388,42 @@ button:hover {
     }
 }
 
+@media only screen and (max-width: 750px) {
+    .edit-description-input,
+    .edit-date-input,
+    .edit-priority-select {
+        padding: 1em;
+        border: 0.1em solid var(--border-btn-color);
+        border-radius: 0.4em;
+    }
+
+    .task-list li.editing  {
+        flex-direction: column;
+        align-items: center;
+    } 
+
+    .task-list li.editing .right-li {
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .task-list li.editing {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .task-list li.editing .left-li {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 70%;
+    }
+
+    .task-list li.editing .right-li {
+        justify-content: flex-end;
+        width: 25%;
+    }
+}
 
 @media only screen and (max-width: 480px) {
     main {
@@ -444,4 +479,12 @@ button:hover {
         width: 100%;
     }
 
+    .task-list li.editing {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .task-list li.editing .left-li{
+        align-items: center;
+    }
 }
