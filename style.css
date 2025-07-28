@@ -333,7 +333,7 @@ button:hover {
 
 /* Media Queries for Responsiveness */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 870px) {
     .task-form {
         flex-direction: column;
         align-items: stretch;
@@ -376,6 +376,10 @@ button:hover {
         gap: 0.5em;
     }
 
+    .right-li {
+        justify-content: flex-end;
+    }
+
     .span-description {
         font-size: 16px;
     }
@@ -397,12 +401,47 @@ button:hover {
         padding: 1em;
     }
     
+    .task-list li {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .left-li {
+        width: 75%;
+        margin-right: 2em;
+    }
+
     .right-li {
         flex-direction: column;
+        align-items: flex-end;
+        width: 25%;
+    }
+
+    .delete-task-btn,
+    .edit-task-btn,
+    .save-edit-btn,
+    .cancel-edit-btn {
+        width: 7.5em;
     }
 
     .sort-options-dropdown,
     .sfilter-options-dropdown {
         width: calc(100% - 1.5em);
     }
+}
+
+@media only screen and (max-width: 370px) {
+    .task-list li {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .right-li,
+    .left-li {
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        width: 100%;
+    }
+
 }
