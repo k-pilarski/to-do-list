@@ -8,3 +8,5 @@ export const sortButton = document.getElementById("js--sort-button-id");
 export const sortOptionsDropdown = document.getElementById("js--sort-options-id");
 export const filterButton = document.getElementById("js--filter-button-id");
 export const filterOptionsDropdown = document.getElementById("js--filter-options-id");
+export const errorDescMessage = document.getElementById("js--error-desc-msg-id");
+export const errorDateMessage = document.getElementById("js--error-date-msg-id");

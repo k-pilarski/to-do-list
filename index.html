@@ -19,8 +19,14 @@
     </header>
     <main>
         <form class="task-form" id="js--task-form-id">
-            <input type="text" id="js--task-description-id" name="taskDescription" placeholder="Task description" required>
-            <input type="datetime-local" id="js--task-due-date-id" name="taskDueDate">
+            <div class="full-task">
+                <input type="text" id="js--task-description-id" name="taskDescription" placeholder="Task description">
+                <div id="js--error-desc-msg-id" class="error-msg"></div>
+            </div>
+            <div class="full-task">
+                <input type="datetime-local" id="js--task-due-date-id" name="taskDueDate">
+                <div id="js--error-date-msg-id" class="error-msg"></div>
+            </div>
             <select id="js--task-priority-id" name="taskPriority">
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>

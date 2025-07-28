@@ -84,6 +84,10 @@ button:hover {
     padding: 1em;
 }
 
+.task-form button {
+    max-height: 3.5em;
+}
+
 .sort-button,
 .filter-button {
     padding: 0.8em 1.5em;
@@ -137,6 +141,7 @@ button:hover {
     padding: 1em;
     border: 0.1em solid var(--border-btn-color);
     border-radius: 0.4em;
+    max-height: 3.5em;
 }
 
 .task-form input:focus,
@@ -144,6 +149,23 @@ button:hover {
     outline: none; 
     border-color: var(--bg-btn-color);
     box-shadow: 0 0 0 0.15em rgba(118, 159, 205, 0.25);
+}
+
+.full-task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task-form input.error {
+    border-color: var(--priority-high-border-color);
+}
+
+.error-msg {
+    display: none;
+    color: var(--priority-high-border-color);
+    opacity: 0.75;
+    margin-top: 1em;
 }
 
 /* Filter and Sort Styles */

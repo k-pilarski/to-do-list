@@ -1,4 +1,4 @@
-import { taskForm, taskDescription, taskDueDate, taskPriority, tasksList, sortButton, sortOptionsDropdown, filterButton, filterOptionsDropdown } from '../dom/elements.js';
+import { taskForm, taskDescription, taskDueDate, taskPriority, tasksList, sortButton, sortOptionsDropdown, filterButton, filterOptionsDropdown, errorDescMessage, errorDateMessage } from '../dom/elements.js';
 import { Task } from '../models/Task.js';
 
 export const setupFormSubmit = (tasks, renderTasks, saveTasks, getStateAndRender) => {
@@ -6,10 +6,27 @@ export const setupFormSubmit = (tasks, renderTasks, saveTasks, getStateAndRender
         event.preventDefault();
 
         if (taskDescription.value.trim() === "") {
-            alert("Task description is empty");
+            taskDescription.classList.add('error')
+            errorDescMessage.style.display = 'block';
+            errorDescMessage.innerHTML = 'Task description is empty.'
+        } else if (taskDescription.value.trim().length < 4) {
+            taskDescription.classList.add('error')
+            errorDescMessage.style.display = 'block';
+            errorDescMessage.innerHTML = 'Task description is too short.'
         } else if (taskDueDate.value === "") {
-            alert("Task date is empty");
+            taskDescription.classList.remove('error')
+            errorDescMessage.style.display = 'none';
+            errorDescMessage.innerHTML = ''
+            taskDueDate.classList.add('error')
+            errorDateMessage.style.display = 'block';
+            errorDateMessage.innerHTML = 'Task date is empty.'
         } else {
+            taskDescription.classList.remove('error')
+            errorDescMessage.style.display = 'none';
+            errorDescMessage.innerHTML = ''
+            taskDueDate.classList.remove('error')
+            errorDateMessage.style.display = 'none';
+            errorDateMessage.innerHTML = ''
             const newTask = new Task(
                 taskDescription.value,
                 taskDueDate.value,
