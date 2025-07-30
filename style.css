@@ -98,7 +98,7 @@ button:hover {
 
 .sort-button:hover,
 .filter-button:hover {
-    transform: scale(1.02);
+    transform: scale(1.);
 }
 
 .sort-button .arrow-down,
