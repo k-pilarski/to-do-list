@@ -1,5 +1,10 @@
 export const notificationSound = () => {
-    let audio =  new Audio('../../assets/notification.mp3');
+    const audioPath = new URL('../../assets/notification.mp3', window.location.href);
+    
+    let audio =  new Audio(audioPath.href);
     audio.volume = 0.1; 
-    audio.play();
+    audio.play()
+        .catch(error => {
+                console.error("Audio playback error:", error);
+            });
 };
