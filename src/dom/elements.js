@@ -10,3 +10,4 @@ export const filterButton = document.getElementById("js--filter-button-id");
 export const filterOptionsDropdown = document.getElementById("js--filter-options-id");
 export const errorDescMessage = document.getElementById("js--error-desc-msg-id");
 export const errorDateMessage = document.getElementById("js--error-date-msg-id");
+export const themeSwitch = document.getElementById('js--theme-switch-id');

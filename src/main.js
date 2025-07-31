@@ -3,6 +3,7 @@ import { loadTasks, saveTasks } from './utils/storage.js';
 import { renderTasks } from './ui/render.js';
 import { setupFormSubmit, setupTaskListClicks, setupSortControls, setupFilterControls } from './features/taskHandlers.js';
 import { setupDragAndDrop } from './features/dragAndDrop.js';
+import { setupDarkMode } from './features/darkMode.js';
 
 let tasks = loadTasks();
 
@@ -31,6 +32,8 @@ const initApp = () => {
         currentFilter = filterBy;
         renderTasks(...getStateAndRender());
     });
+
+    setupDarkMode();
 };
 
 document.addEventListener('DOMContentLoaded', initApp);

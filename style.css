@@ -18,6 +18,24 @@
     --priority-high-border-color: #F44336;
 }
 
+:root .darkmode {
+    --bg-color: #121212;
+    --bg-color-header-and-footer: #1E2A3A;
+    --font-color: #E0E6ED;
+    --headers-font-color: #FFFFFF;
+    --bg-task-form-color: #2C3E50;
+    --shadow: rgba(255, 255, 255, 0.05);
+    --border-btn-color: #444C56;
+    --bg-btn-color: #3B516D;
+    --bg-task-color: #2E3F52;
+    --bg-completed-task-color: #3A3A3A;
+    --font-completed-color: #B0B3B8;
+    --btn-hover-color: #56789C;
+    --priority-low-border-color: #81C784;
+    --priority-medium-border-color: #FFD54F;
+    --priority-high-border-color: #EF5350;
+}
+
 /* CSS Reset */
 
 *, *::before, *::after {
@@ -48,7 +66,10 @@ footer {
     background: var(--bg-color-header-and-footer);
     color: var(--headers-font-color);
     display: flex;
-    justify-content: center;
+}
+
+header {
+    justify-content: space-between;
 }
 
 main {
@@ -58,6 +79,7 @@ main {
 
 footer {
     margin-top: auto;
+    justify-content: center;
 }
 
 /* Button Styles */
@@ -119,6 +141,48 @@ button:hover {
 .task-list li.completed .edit-task-btn:hover {
     background-color: var(--bg-btn-color);
     transform: scale(1);
+}
+
+/* Toggle Switch Styles*/
+
+.dark-mode-switch {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    background-color: var(--bg-color-header-and-footer);
+}
+
+.sun-icon,
+.moon-icon {
+    font-size: 2em;
+    text-align: center;
+    line-height: 0.75;
+}
+
+.sun-icon {
+    display: block;
+}
+
+.moon-icon {
+    display: none;
+}
+
+.darkmode .sun-icon {
+    display: none;
+}
+
+.darkmode .moon-icon {
+    display: block;
+}
+
+.header-placeholder {
+    width: 3em;
+    visibility: hidden;
 }
 
 /* Form Styles */
