@@ -1,3 +1,4 @@
+import { setDefaultTaskDueDate } from '../utils/date.js';
 import { taskForm, taskDescription, taskDueDate, taskPriority, tasksList, sortButton, sortOptionsDropdown, filterButton, filterOptionsDropdown, errorDescMessage, errorDateMessage } from '../dom/elements.js';
 import { Task } from '../models/Task.js';
 
@@ -38,6 +39,7 @@ export const setupFormSubmit = (tasks, renderTasks, saveTasks, getStateAndRender
             saveTasks(tasks);
             const [updatedTasks, currentFilter, currentSortBy, currentSortOrder] = getStateAndRender();
             renderTasks(updatedTasks, currentFilter, currentSortBy, currentSortOrder);
+            setDefaultTaskDueDate();
         }
     });
 };
