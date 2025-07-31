@@ -1,6 +1,6 @@
 export const notificationSound = () => {
     const basePath = window.location.pathname.includes('/to-do-list') 
-        ? '/nazwa-repozytorium'
+        ? '/to-do-list'
         : '';
     
     let audio =  new Audio(`${basePath}/notification.mp3`);
