@@ -97,7 +97,7 @@ export const setupTaskListClicks = (tasks, renderTasks, saveTasks, getStateAndRe
             saveTasks(tasks);
             const [updatedTasks, currentFilter, currentSortBy, currentSortOrder] = getStateAndRender();
             renderTasks(updatedTasks, currentFilter, currentSortBy, currentSortOrder);
-            // notificationSound();
+            notificationSound();
         }
     });
 };

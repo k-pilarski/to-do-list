@@ -162,22 +162,27 @@ button:hover {
     font-size: 2em;
     text-align: center;
     line-height: 0.75;
+    transition: 0.5s ease
 }
 
 .sun-icon {
-    display: block;
+    opacity: 1;
+    transform: translate(0.45em);
 }
 
 .moon-icon {
-    display: none;
+    opacity: 0;
+    transform: translate(-0.45em);
 }
 
 .darkmode .sun-icon {
-    display: none;
+    opacity: 0;
+    transform: translate(0.45em);
 }
 
 .darkmode .moon-icon {
-    display: block;
+    opacity: 1;
+    transform: translate(-0.45em);
 }
 
 .header-placeholder {
@@ -553,5 +558,13 @@ button:hover {
 
     .task-list li.editing .left-li{
         align-items: center;
+    }
+    
+    .sort-button {
+        margin-left: 1em;
+    }
+
+    .filter-button {
+        margin-right: 1em;
     }
 }
