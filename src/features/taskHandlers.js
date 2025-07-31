@@ -1,6 +1,7 @@
 import { setDefaultTaskDueDate } from '../utils/date.js';
 import { taskForm, taskDescription, taskDueDate, taskPriority, tasksList, sortButton, sortOptionsDropdown, filterButton, filterOptionsDropdown, errorDescMessage, errorDateMessage } from '../dom/elements.js';
 import { Task } from '../models/Task.js';
+import { notificationSound } from '../utils/sound.js';
 
 export const setupFormSubmit = (tasks, renderTasks, saveTasks, getStateAndRender) => {
     taskForm.addEventListener('submit', function(event) {
@@ -96,6 +97,7 @@ export const setupTaskListClicks = (tasks, renderTasks, saveTasks, getStateAndRe
             saveTasks(tasks);
             const [updatedTasks, currentFilter, currentSortBy, currentSortOrder] = getStateAndRender();
             renderTasks(updatedTasks, currentFilter, currentSortBy, currentSortOrder);
+            notificationSound();
         }
     });
 };
