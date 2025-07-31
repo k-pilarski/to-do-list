@@ -1,3 +1,4 @@
+import { setDefaultTaskDueDate } from './utils/date.js';
 import { loadTasks, saveTasks } from './utils/storage.js';
 import { renderTasks } from './ui/render.js';
 import { setupFormSubmit, setupTaskListClicks, setupSortControls, setupFilterControls } from './features/taskHandlers.js';
@@ -14,6 +15,8 @@ const getStateAndRender = () => {
 };
 
 const initApp = () => {
+    setDefaultTaskDueDate();
+    
     renderTasks(...getStateAndRender());
 
     setupFormSubmit(tasks, renderTasks, saveTasks, getStateAndRender);

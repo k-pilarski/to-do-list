@@ -459,10 +459,10 @@ button:hover {
         width: 7.5em;
     }
 
-    .sort-options-dropdown,
+    /* .sort-options-dropdown,
     .sfilter-options-dropdown {
         width: calc(100% - 1.5em);
-    }
+    } */
 }
 
 @media only screen and (max-width: 370px) {
