@@ -18,7 +18,7 @@ export const setupDarkMode = () => {
     
     if (savedTheme === 'dark') {
         enableDarkMode();
-    } else {
+    } else if (savedTheme === 'light') {
         disableDarkMode();
     }
 
