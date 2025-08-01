@@ -3,7 +3,7 @@ export const notificationSound = () => {
         ? '/to-do-list'
         : '';
     
-    let audio =  new Audio(`${basePath}/notification.mp3`);
+    let audio =  new Audio(`${basePath}/assets/notification.mp3`);
     audio.volume = 0.1; 
     audio.play()
 };
