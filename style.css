@@ -568,3 +568,24 @@ button:hover {
         margin-right: 1em;
     }
 }
+
+/* iOS */
+
+@supports (-webkit-touch-callout: none) {
+  input[type="datetime-local"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    min-width: 0;
+
+    font-size: 1rem;
+    font-family: inherit;
+
+    background-color: var(--bg-task-form-color);
+    color: var(--font-color);
+    border: 0.1em solid var(--border-btn-color);
+    border-radius: 0.4em;
+    padding: 1em;
+    box-sizing: border-box;
+  }
+}
